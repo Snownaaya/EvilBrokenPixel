@@ -1,8 +1,7 @@
 ﻿using Assets._Project.Scripts.Services.SceneLoaderServices;
-using UnityEngine;
 using VContainer;
 
-namespace Assets._Project.Scripts.UI
+namespace Assets._Project.Scripts.UI.Buttons
 {
     public class StartGameButton : ButtonHelper
     {
@@ -12,13 +11,10 @@ namespace Assets._Project.Scripts.UI
         private void Construct(SceneTransition sceneTransition) =>
             _sceneTransition = sceneTransition;
 
-        private void OnEnable() =>
-            Button.onClick.AddListener(OnClickedStart);
-
-        private void OnDisable() =>
-            Button.onClick.RemoveListener(OnClickedStart);
-
-        private void OnClickedStart() => 
+        protected override void OnClicked()
+        {
+            base.OnClicked();
             _sceneTransition.SceneLoader(SceneID.GameScene);
+        }
     }
 }

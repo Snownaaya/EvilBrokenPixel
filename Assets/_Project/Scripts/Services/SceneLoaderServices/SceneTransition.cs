@@ -1,4 +1,5 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets._Project.Scripts.Services.SceneLoaderServices
 {
@@ -8,6 +9,12 @@ namespace Assets._Project.Scripts.Services.SceneLoaderServices
         {
             string sceneName = sceneID.ToString();
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
+
+        public void ExitGame()
+        {
+            Debug.Log("ExitGame");
+            Application.Quit();
         }
     }
 }

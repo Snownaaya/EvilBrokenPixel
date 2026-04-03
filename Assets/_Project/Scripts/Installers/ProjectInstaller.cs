@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets._Project.Scripts.Counter;
+using Assets._Project.Scripts.Counters;
+using Assets._Project.Scripts.UI.Score;
+using VContainer;
+using VContainer.Unity;
 
 namespace Assets._Project.Scripts.Installers
 {
-    internal class ProjectInstaller
+    public class ProjectInstaller : LifetimeScope
     {
+        protected override void Configure(IContainerBuilder builder)
+        {
+            base.Configure(builder);
+
+            ScoreBind(builder);
+        }
+
+        private void ScoreBind(IContainerBuilder builder)
+        {
+            builder.Register<ScoreCounter>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<ScoreView>().AsImplementedInterfaces();
+
+            builder.Register<ScorePresenter>(Lifetime.Singleton);
+        }
     }
 }

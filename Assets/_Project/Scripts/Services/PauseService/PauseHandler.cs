@@ -6,16 +6,22 @@ namespace Assets._Project.Scripts.Services.PauseService
     {
         private List<IPause> _pauses = new List<IPause>();
 
+        public void Register(IPause pause) =>
+            _pauses.Add(pause);
+
+        public void UnRegister(IPause pause) =>
+            _pauses.Remove(pause);
+
         public void AddPause()
         {
             foreach (IPause pause in _pauses)
-                pause.Add();
+                pause.Pause();
         }
 
         public void RemovePause()
         {
             foreach(IPause pause in _pauses) 
-                pause.Remove();
+                pause.Resume();
         }
     }
 }

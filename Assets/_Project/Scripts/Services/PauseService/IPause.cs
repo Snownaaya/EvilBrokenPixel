@@ -1,9 +1,11 @@
-﻿namespace Assets._Project.Scripts.Services.PauseService
+﻿using System;
+
+namespace Assets._Project.Scripts.Services.PauseService
 {
     public interface IPause
     {
-        public void Add();
+        public void Pause();
 
-        public void Remove();
+        public void Resume();
     }
 }
