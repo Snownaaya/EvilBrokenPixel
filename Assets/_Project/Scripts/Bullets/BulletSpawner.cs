@@ -1,8 +1,17 @@
-﻿using Assets.Project.Scripts.Utils;
+﻿using Assets._Project.Scripts.Utils;
 
-namespace Assets.Project.Scripts.Bullets
+namespace Assets._Project.Scripts.Bullets
 {
-    public class BulletSpawner : PoolObject<Bullet>
+    public class BulletSpawner : Spawner<Bullet>
     {
+        protected override void OnReturn(Bullet @object)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void OnSpawn(Bullet @object)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

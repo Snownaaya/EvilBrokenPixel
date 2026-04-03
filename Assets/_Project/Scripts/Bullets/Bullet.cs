@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Assets.Project.Scripts.Bullets
+namespace Assets._Project.Scripts.Bullets
 {
     public class Bullet : MonoBehaviour
     {
+        
     }
 }
