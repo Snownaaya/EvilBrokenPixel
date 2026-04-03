@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Project.Scripts.Utils
 {
-    public class PoolObject<T> : MonoBehaviour where T : MonoBehaviour
+    public class PoolObject<T>  where T : MonoBehaviour
     {
         [SerializeField] private Transform _container;
 
@@ -16,7 +16,7 @@ namespace Assets.Project.Scripts.Utils
         {
             if (_pool.Count == 0)
             {
-                T pooledGameObject = Instantiate(@object, _container);
+                T pooledGameObject = Object.Instantiate(@object);
                 return pooledGameObject;
             }
 
@@ -25,7 +25,7 @@ namespace Assets.Project.Scripts.Utils
             return _pool.Dequeue();
         }
 
-        public void Pull(T @object)
+        public void Get(T @object)
         {
             _pool.Dequeue();
             @object.gameObject.SetActive(false);
